@@ -1,7 +1,9 @@
 from django.db import models
+from djongo.models import ObjectIdField
 
 
 class Team(models.Model):
+    id = ObjectIdField(primary_key=True, editable=False)
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(blank=True)
 
@@ -10,6 +12,7 @@ class Team(models.Model):
 
 
 class UserProfile(models.Model):
+    id = ObjectIdField(primary_key=True, editable=False)
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100, blank=True)
@@ -20,6 +23,7 @@ class UserProfile(models.Model):
 
 
 class Activity(models.Model):
+    id = ObjectIdField(primary_key=True, editable=False)
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='activities')
     name = models.CharField(max_length=200)
     duration_minutes = models.IntegerField()
@@ -31,6 +35,7 @@ class Activity(models.Model):
 
 
 class Workout(models.Model):
+    id = ObjectIdField(primary_key=True, editable=False)
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='workouts')
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
@@ -41,6 +46,7 @@ class Workout(models.Model):
 
 
 class LeaderboardEntry(models.Model):
+    id = ObjectIdField(primary_key=True, editable=False)
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='leaderboard_entries')
     score = models.IntegerField(default=0)
     rank = models.IntegerField(null=True, blank=True)
