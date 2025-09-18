@@ -1,0 +1,184 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* OctoFit custom styles */
+.App {
+  text-align: left;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #111827;
+}
+
+/* Cards */
+.card {
+  border-radius: 8px;
+}
+
+/* Tables */
+.table th,
+.table td {
+  vertical-align: middle;
+  padding: 0.75rem;
+}
+
+.table thead th {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.table tbody tr td:first-child {
+  font-family: Menlo, monospace;
+  font-size: 0.85rem;
+  color: #2b2b2b;
+}
+
+/* Headings */
+.h5, h1, h2, h3, h4 {
+  color: #1f2937;
+}
+
+/* Buttons */
+.btn { 
+  border-radius: 6px;
+}
+
+/* Empty state */
+.table .text-center.py-4 {
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Navbar */
+.navbar-brand {
+  font-family: 'Segoe UI', Roboto, Arial;
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .table-responsive {
+    font-size: 0.9rem;
+  }
+}
+
+/* Color theme for OctoFit */
+:root {
+  --octo-bg: #f4f7fb; /* soft blue-gray */
+  --octo-panel: #ffffff; /* card background */
+  --octo-accent: #0d6efd; /* primary bootstrap blue */
+  --octo-strong: #0b3d91; /* darker accent */
+  --octo-muted: #6b7280; /* muted text */
+  --octo-success: #10b981;
+  --octo-danger: #ef4444;
+}
+
+body {
+  background: linear-gradient(180deg, var(--octo-bg), #ffffff 50%);
+  color: #0f172a;
+}
+
+.App {
+  color: #0f172a;
+}
+
+.navbar.bg-primary {
+  background: linear-gradient(90deg, var(--octo-accent), var(--octo-strong)) !important;
+}
+
+.navbar .nav-link {
+  color: rgba(255,255,255,0.95) !important;
+}
+
+.navbar .nav-link:hover {
+  color: #e6f0ff !important;
+}
+
+.card {
+  background: var(--octo-panel);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.table thead {
+  background: linear-gradient(90deg, rgba(13,110,253,0.06), rgba(11,61,145,0.03));
+}
+
+.table tbody tr:hover {
+  background: rgba(13,110,253,0.03);
+}
+
+.table td, .table th {
+  border-top: 1px solid rgba(15,23,42,0.04);
+}
+
+.btn-primary {
+  background: var(--octo-accent);
+  border-color: var(--octo-accent);
+}
+
+.btn-outline-primary {
+  color: var(--octo-accent);
+  border-color: rgba(13,110,253,0.2);
+}
+
+.btn-outline-danger {
+  color: var(--octo-danger);
+  border-color: rgba(239,68,68,0.12);
+}
+
+h1, h2, h3, h4, .h5 {
+  color: var(--octo-strong);
+}
+
+a {
+  color: var(--octo-accent);
+}
+
+a:hover {
+  color: var(--octo-strong);
+}
+
+/* small logo spacing */
+.navbar-brand img {
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(2,6,23,0.12);
+}
+
+/* Favicon / small adjustments */
+.favicon-inline {
+  width: 20px;
+  height: 20px;
+}

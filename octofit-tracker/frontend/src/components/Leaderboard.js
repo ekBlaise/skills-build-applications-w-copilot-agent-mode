@@ -23,8 +23,44 @@ const Leaderboard = () => {
 
   return (
     <div>
-      <h2>Leaderboard</h2>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h2 className="h5">Leaderboard</h2>
+        <div>
+          <button className="btn btn-sm btn-outline-secondary">Refresh</button>
+        </div>
+      </div>
+
+      <div className="card shadow-sm">
+        <div className="card-body p-0">
+          <div className="table-responsive">
+            <table className="table table-striped table-hover mb-0">
+              <thead className="table-light">
+                <tr>
+                  <th>Rank</th>
+                  <th>User</th>
+                  <th>Team</th>
+                  <th>Points</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((l, idx) => (
+                  <tr key={l.id || l._id || idx}>
+                    <td>{l.rank || idx + 1}</td>
+                    <td>{(l.user && (l.user.name || l.user)) || l.user_id || '-'}</td>
+                    <td>{(l.team && (l.team.name || l.team)) || l.team_id || '-'}</td>
+                    <td>{l.points || l.score || '-'}</td>
+                  </tr>
+                ))}
+                {data.length === 0 && (
+                  <tr>
+                    <td colSpan="4" className="text-center py-4">No leaderboard entries found.</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

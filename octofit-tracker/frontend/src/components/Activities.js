@@ -23,8 +23,50 @@ const Activities = () => {
 
   return (
     <div>
-      <h2>Activities</h2>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h2 className="h5">Activities</h2>
+        <div>
+          <button className="btn btn-sm btn-primary me-2">New Activity</button>
+          <button className="btn btn-sm btn-outline-secondary">Refresh</button>
+        </div>
+      </div>
+
+      <div className="card shadow-sm">
+        <div className="card-body p-0">
+          <div className="table-responsive">
+            <table className="table table-striped table-hover mb-0">
+              <thead className="table-light">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Duration</th>
+                  <th scope="col">Calories</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((a) => (
+                  <tr key={a.id || a._id || Math.random()}>
+                    <td>{a.id || a._id}</td>
+                    <td>{a.name || a.activity_name || '-'}</td>
+                    <td>{a.duration || a.length || '-'}</td>
+                    <td>{a.calories || '-'}</td>
+                    <td>
+                      <button className="btn btn-sm btn-outline-primary me-2">View</button>
+                      <button className="btn btn-sm btn-outline-danger">Delete</button>
+                    </td>
+                  </tr>
+                ))}
+                {data.length === 0 && (
+                  <tr>
+                    <td colSpan="5" className="text-center py-4">No activities found.</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
